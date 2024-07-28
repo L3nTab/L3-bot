@@ -73,5 +73,14 @@ async def _bot(ctx):
     """Is the bot cool?"""
     await ctx.send('Yes, the bot is cool.')
 
+@bot.command()
+async def commands_list(ctx):
+    """Lists all available commands."""
+    commands = bot.commands
+    help_text = "Available commands:\n"
+    for command in commands:
+        help_text += f"{command.name}: {command.help}\n"
+    await ctx.send(help_text)
+
 
 bot.run("your token")
